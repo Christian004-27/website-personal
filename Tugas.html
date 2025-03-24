@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Number Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-image: url('Universitas-Sam-Ratulangi_UNSRAT_ZonautaraCom.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            margin: auto;
+        }
+        input {
+            padding: 10px;
+            width: 300px;
+            border-radius: 5px;
+            border: 1px solid #f10000;
+        }
+        button {
+            padding: 10px;
+            margin-left: 10px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #08eaf1;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .menu {
+            margin-bottom: 20px;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin: 10px;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown-content a {
+            padding: 10px;
+            display: block;
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Scientific Number Checker</h2>
+        
+        <div class="menu">
+            <div class="dropdown">
+                <button>File</button>
+                <div class="dropdown-content">
+                    <a href="#">💾 Save</a>
+                    <a href="#">💾 Save As</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button>Edit</button>
+                <div class="dropdown-content">
+                    <a href="#">📋 Copy</a>
+                    <a href="#">📋 Paste</a>
+                </div>
+            </div>
+            <button onclick="checkNumber()">Run</button>
+            <button onclick="alert('Nama: Christian Rivaldo Rios Tulumang\nNIM: 231011060041')">About Us</button>
+        </div>
+        
+        <input type="text" id="inputNumber" placeholder="Enter a number">
+        <button onclick="checkNumber()">Check</button>
+        <p id="result"></p>
+    </div>
+    
+    <script>
+        function checkNumber() {
+            const input = document.getElementById("inputNumber").value;
+            const scientificNotationPattern = /^-?\d+(\.\d+)?(e[-+]?\d+)?$/i;
+            
+            if (scientificNotationPattern.test(input)) {
+                document.getElementById("result").innerText = "Yes, it is a number";
+                document.getElementById("result").style.color = "green";
+            } else {
+                document.getElementById("result").innerText = "No, it is not a number";
+                document.getElementById("result").style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
